@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <style>
+        #csvFileInput {
+            position: absolute;
+            right: 0px;
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button" name="seach" onclick="FuncCSVInport()">CSV Import</button>
+    <input type="file" id="csvFileInput" onchange="readCSVFile(this)" />
+    <script>
+        function csvToObject(csvString) {
+            var csvarry = csvString.split("\r\n");
+            var datas = [];
+            var headers = csvarry[0].split(",");
+            for (var i = 1; i < csvarry.length; i++) {
+                var data = {};
+                var temp = csvarry[i].split(",");
+                for (var j = 0; j < temp.length; j++) {
+                    data[headers[j]] = temp[j];
+                }
+                datas.push(data);
+            }
+            return datas;
+        }
+
+        function FuncCSVInport() {
+            $("#csvFileInput").val("");
+            $("#csvFileInput").click();
+        }
+var     obj1={}
+        function readCSVFile(obj) {
+            var reader = new FileReader();
+            reader.readAsText(obj.files[0]);
+            reader.onload = function () {
+                let data=reader.result.split("parentId")[1].split("\n");
+                data.map(e=>{
+                    console.log()
+                    console.log(e.split(",")[1])
+                    console.log()
+                    obj1[e.split(",")[4]]=[e.split(",")[0],e.split(",")[1]]
+                })
+                console.log(JSON.stringify(obj1))
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>疫情大数据监测</title>
+
+    <script src="./scripts/Cesium/Cesium.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v= 2.0&ak=sSelQoVi2L3KofLo1HOobonW"></script>
+    <link rel="stylesheet" href="./scripts/Cesium/Widgets/widgets.css">
+    <link rel="stylesheet" href="./yiqing/i.css">
+    <script src="./yiqing/a.js"></script>
+    <link rel="stylesheet" href="./yiqing/ui.css">
+    <script src="https://cdn.bootcss.com/echarts/4.4.0-rc.1/echarts-en.js"></script>
+</head>
+
+<body>
+
+    <div id="toopTips" style="display: NONE;">
+        <div class="toopItem">
+            <div class="colorSESSION"></div>
+            <div>0人</div>
+        </div>
+        <div class="toopItem">
+            <div class="colorSESSION"></div>
+            <div>1-9人</div>
+        </div>
+        <div class="toopItem">
+            <div class="colorSESSION"></div>
+            <div>10-99人</div>
+        </div>
+        <div class="toopItem">
+            <div class="colorSESSION"></div>
+            <div>100-9999人</div>
+        </div>
+      
+        <div class="toopItem">
+            <div class="colorSESSION"></div>
+            <div>>=10000</div>
+        </div>
+     
+        
+    </div>
+
+
+      <!-- 头部 -->
+      <div id="header">
+        <img style="height: 30%;margin-left: 20px;margin-top: 25px;" src="./下载.png" class="logo" alt="">
+        <div id="headerTitle">3D疫情大数据</div>
+        <div class="valueItem" style="margin-left: 30px;">
+            <div class="valueCount color1" id="cc1"></div>
+            <div class="valueTitle color1">确诊</div>
+        </div>
+        <div class="valueItem">
+            <div class="valueCount color2" id="cc2"></div>
+            <div class="valueTitle color2">治愈</div>
+        </div>
+        <div class="valueItem">
+            <div class="valueCount color3" id="cc3"></div>
+            <div class="valueTitle color3">死亡</div>
+        </div>
+        <div id='dateWrap'>
+            <div id="date">2020/2/20 </div>
+            <div id="time">2020/2/20 </div>
+        </div>
+    </div>
+    <div class="showSlectCont" id="showMsg">
+        疫情新闻
+    </div>
+
+    <!-- 疫情新闻 -->
+    <div id="yiqingxinwen" style="display: block;">
+        <div class="baodaotitle">实时报道</div>
+        <div id="contentStr">
+
+        </div>
+    </div>
+    <!-- 疫情数据显示按钮 -->
+    <div id="showSlectCont" style="background:red">
+        <span>疫情数据列表</span>
+        <div class="SHOWjIANTOU" id="showJiantou"></div>
+    </div>
+    <!-- 右侧选择框 -->
+    <div id="selectCounts" style="display: none;">
+        <div id="selectHeader">疫情数据列表 </div>
+        <div id="selectHeader2">
+            <div class="sence">地区</div>
+            <div class="leijiquezheng">累计确诊</div>
+            <div class="leijiquezhengzhiyu">治愈</div>
+            <div class="leijisiwang">死亡</div>
+        </div>
+        <div id="selectMain">
+        </div>
+    </div>
+    </div>
+
+
+    <!-- 左侧两张图标 -->
+    <div id="canvas1">
+        <img class="close" id="close2" src="./关闭 (1).png" alt="">
+        <div class="title" id="t1">全球疫情占比</div>
+        <canvas width="350" id="c1" height="300"></canvas>
+    </div>
+    <div id="canvas2">
+        <img class="close" id="close1" src="./关闭 (1).png" alt="">
+        <div class="title" id="t2">省内疫情占比</div>
+        <canvas width="350" id="c2" height="300"></canvas>
+    </div>
+    <div id="cesiumContainer" style="width: 100%;height: 100%;"></div>
+</body>
+<script src="./yiqing/data.js"></script>
+<script src="./yiqing/i.js"></script>
+<script src="./yiqing/log.js"></script>
+<script src="./yiqing/main.js"></script>
+</html>
